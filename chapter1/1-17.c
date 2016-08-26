@@ -3,7 +3,7 @@
 #define MAXLINE 1000
 
 /*
-  Print all input lines that are longer than 80 chars.
+  Print all input lines that are longer than 10 chars.
 */
 
 /* NOTES
@@ -11,14 +11,15 @@
 Using `sizeof` to get the size of the array doesn't work. This
 returns the total storage allocation of the array (MAXLINE).
 
-Instead, just loop through and count, but don't include the `\0`.
+Instead, just loop through and count. Since index starts at 0,
+counting the '\0' at the end is ok and works in this case.
+We are getting the correct length because we need to add 1 to the
+final.
 
 
-WHY?? Does the '\0' do anything for the array? I realize as I loop
-through the array and print everything out, if I have multiple
-'\0' in there, it doesn't matter. It will continue looping and
-printing. If no '\0' exists at all, it loops and prints anyways as
-well. Why?
+Using '\0' isn't an array convention (I think). In this case, we
+need it for `store` method. The while loop condition is looking for
+the '\0'.
 
 
 Again, is it convention to pass constant MAXLINE as a param to
@@ -43,8 +44,6 @@ int main(void) {
     }
   }
 
-  // output[tlen] = '\0';
-
   printf("%s", output);
 
   return 0;
@@ -64,7 +63,7 @@ int grabsize(char line[]) {
     ++i;
   }
 
-  // line[i] = '\0';
+  line[i] = '\0';
 
   return i;
 }
