@@ -26,6 +26,15 @@ have to loop the array to determine length. I would also need to build
 a `buildArray` method to build the char array, which is an additional
 loop.
 
+
+In this example, use of '\0' to end the char array is important.
+Using the %s tag in the `printf` call will stop printing once it meets
+the '\0' null char.
+In addition, the `input` char array, I don't think it resets the values after the '\0'. Those chars still exist. My code isn't erasing
+them. This is something I feel I will learn to solve later on once
+I understand C and its built-in functions better. For now, I will
+just leave as is, since the program is running without errors.
+
 */
 
 int getLength(char line[]);
