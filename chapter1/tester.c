@@ -1,18 +1,9 @@
 #include <stdio.h>
 
 /*
-test power fxn
+This file is just a scratch pad for testing things out :)
 */
 
-// int power(int m, int n);
-
 int main(void) {
-  // int i;
-  int i = 1;
-
-  for (int i = 0; i < 3; ++i) {
-    printf("%d", i);
-  }
-
-  printf("%d", i);
+  
 }
